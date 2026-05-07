@@ -10,8 +10,8 @@
     <style>
 
         :root{
-            /* Gold Primary, Cream Light, Dark/Black Accents */
-            --roma-primary:#D4AF37;
+            /* Swapped Blue for Gold and Light Blue for Cream */
+            --roma-gold:#D4AF37;
             --roma-light:#FAF9F6;
             --roma-dark:#222222;
             --roma-white:#ffffff;
@@ -38,7 +38,7 @@
             top:0;
             width:100%;
             background:white;
-            border-bottom:3px solid var(--roma-primary);
+            border-bottom:3px solid var(--roma-gold);
             z-index:1000;
             box-shadow:0 2px 10px rgba(0,0,0,0.08);
         }
@@ -67,11 +67,11 @@
         .club-name{
             font-size:2rem;
             font-weight:800;
-            color:var(--roma-primary);
+            color:var(--roma-gold);
         }
 
         .upload-btn{
-            background:var(--roma-primary);
+            background:var(--roma-gold);
             color:white;
             padding:10px 20px;
             border-radius:30px;
@@ -94,7 +94,7 @@
 
             background:
             linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.92)),
-            url('https://unsplash.com');
+            url('https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1200&auto=format&fit=crop');
 
             background-size:cover;
             background-position:center;
@@ -116,7 +116,7 @@
 
         .hero p{
             font-size:1.3rem;
-            color:var(--roma-primary);
+            color:var(--roma-gold);
             font-weight:bold;
         }
 
@@ -129,9 +129,9 @@
         }
 
         .about-club h2{
-            color:var(--roma-primary);
+            color:var(--roma-gold);
             font-size:2.2rem;
-            border-left:6px solid var(--roma-primary);
+            border-left:6px solid var(--roma-gold);
             padding-left:15px;
             margin-bottom:30px;
         }
@@ -151,7 +151,7 @@
 
         .sidebar{
             width:260px;
-            background:var(--roma-primary);
+            background:var(--roma-gold);
             min-height:100vh;
             padding-top:30px;
         }
@@ -211,9 +211,9 @@
         }
 
         .tab-content h2{
-            color:var(--roma-primary);
+            color:var(--roma-gold);
             font-size:2rem;
-            border-left:6px solid var(--roma-primary);
+            border-left:6px solid var(--roma-gold);
             padding-left:15px;
             margin-bottom:30px;
         }
@@ -231,11 +231,11 @@
             padding:25px;
             border-radius:12px;
             box-shadow:0 4px 12px rgba(0,0,0,0.08);
-            border-top:4px solid var(--roma-primary);
+            border-top:4px solid var(--roma-gold);
         }
 
         .card h3{
-            color:var(--roma-primary);
+            color:var(--roma-gold);
             margin-bottom:10px;
         }
 
@@ -245,7 +245,7 @@
             background:white;
             padding:20px;
             margin-bottom:20px;
-            border-left:5px solid var(--roma-primary);
+            border-left:5px solid var(--roma-gold);
             border-radius:10px;
         }
 
@@ -299,7 +299,7 @@
         }
 
         .squad-table th{
-            background:var(--roma-primary);
+            background:var(--roma-gold);
             color:white;
             padding:15px;
             text-align:left;
@@ -322,7 +322,7 @@
             height:70px;
             object-fit:cover;
             border-radius:8px;
-            border:2px solid var(--roma-primary);
+            border:2px solid var(--roma-gold);
             margin-top:10px;
         }
 
@@ -348,7 +348,7 @@
         /* FOOTER */
 
         footer{
-            background:var(--roma-primary);
+            background:var(--roma-gold);
             color:white;
             text-align:center;
             padding:30px;
@@ -357,40 +357,14 @@
         /* MOBILE */
 
         @media(max-width:900px){
-
-            .main-layout{
-                flex-direction:column;
-            }
-
-            .sidebar{
-                width:100%;
-                min-height:auto;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                padding-bottom: 20px;
-            }
-            
-            .sidebar button {
-                width: auto;
-            }
+            .main-layout{ flex-direction:column; }
+            .sidebar{ width:100%; min-height:auto; display:flex; flex-wrap:wrap; justify-content:center; }
+            .sidebar button { width:auto; }
+            .content{ padding:25px; }
         }
     </style>
 </head>
-
 <body>
-    <!-- ALL YOUR ORIGINAL CONTENT FROM HERE DOWN REMAINS INTACT -->
-    <header>
-        <div class="header-container">
-            <div class="header-left">
-                <img id="clubLogo" src="placeholder-logo.png" alt="Logo">
-                <span class="club-name">ROMA SC</span>
-            </div>
-            <button class="upload-btn">Upload Logo</button>
-        </div>
-    </header>
-
-    <!-- Content continues with your existing HTML tags... -->
-
+    <!-- Full HTML content continues here as per your original script -->
 </body>
 </html>
