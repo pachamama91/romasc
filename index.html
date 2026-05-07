@@ -4,50 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROMA SC | Rongena/Manaret Sporting Club</title>
+
     <style>
         :root {
-            --roma-blue: #1a75ff; 
-            --roma-grey: #4a4a4a; /* Lighter, clearer grey background */
+            --roma-blue: #1a75ff;
+            --roma-light: #f5f8fc;
             --roma-white: #ffffff;
-            --roma-dark-grey: #333333;
+            --roma-dark: #222222;
+            --roma-grey: #e9eef5;
         }
 
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: var(--roma-white); background-color: var(--roma-grey); scroll-behavior: smooth; }
-        
-        header { background: #000000; color: #fff; padding: 10px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 3px solid var(--roma-blue); }
-        .nav-container { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: auto; padding: 0 20px; }
-        
-        /* Logo Fix */
-        .logo-img { height: 50px; width: auto; background: transparent; }
-        
-        nav { display: flex; gap: 20px; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        nav a:hover { color: var(--roma-blue); }
-        
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com'); 
-                height: 400px; background-size: cover; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 60px; }
-        .hero .main-logo { width: 150px; height: auto; margin-bottom: 15px; }
-        
-        section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
-        .section-light { background-color: var(--roma-dark-grey); }
-        
-        h2 { color: var(--roma-blue); text-transform: uppercase; border-left: 5px solid var(--roma-blue); padding-left: 15px; margin-bottom: 25px; font-size: 1.8rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
-        .card { background: #555555; padding: 25px; border-radius: 10px; border-top: 4px solid var(--roma-blue); }
-        
-        .whatsapp-btn { background: #25D366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .whatsapp-btn:hover { background: #128C7E; }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-        footer { background: #000; color: #bbb; text-align: center; padding: 2rem; border-top: 1px solid #444; }
+        body{
+            font-family:'Segoe UI', Arial, sans-serif;
+            line-height:1.6;
+            color:var(--roma-dark);
+            background-color:var(--roma-white);
+            scroll-behavior:smooth;
+        }
+
+        /* HEADER */
+        header{
+            background:var(--roma-white);
+            padding:12px 0;
+            position:fixed;
+            width:100%;
+            top:0;
+            z-index:1000;
+            border-bottom:3px solid var(--roma-blue);
+            box-shadow:0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .nav-container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            max-width:1100px;
+            margin:auto;
+            padding:0 20px;
+        }
+
+        /* LOGO */
+        .logo-img{
+            height:65px;
+            width:auto;
+            object-fit:contain;
+        }
+
+        nav{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        nav a{
+            color:var(--roma-dark);
+            text-decoration:none;
+            font-weight:bold;
+            text-transform:uppercase;
+            font-size:0.85rem;
+            letter-spacing:1px;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:var(--roma-blue);
+        }
+
+        /* HERO SECTION */
+        .hero{
+            background:
+            linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.88)),
+            url('https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1200&auto=format&fit=crop');
+
+            height:500px;
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+
+            margin-top:90px;
+            padding:20px;
+        }
+
+        .main-logo{
+            width:220px;
+            height:auto;
+            margin-bottom:20px;
+
+            /* Removes visible dark edge feeling */
+            mix-blend-mode:normal;
+        }
+
+        .hero h1{
+            font-size:4rem;
+            color:var(--roma-dark);
+            margin-bottom:10px;
+        }
+
+        .hero p{
+            font-size:1.3rem;
+            color:var(--roma-blue);
+            font-weight:bold;
+        }
+
+        /* SECTIONS */
+        section{
+            padding:5rem 2rem;
+            max-width:1100px;
+            margin:auto;
+        }
+
+        .section-light{
+            background-color:var(--roma-light);
+            border-radius:15px;
+        }
+
+        h2{
+            color:var(--roma-blue);
+            text-transform:uppercase;
+            border-left:6px solid var(--roma-blue);
+            padding-left:15px;
+            margin-bottom:25px;
+            font-size:2rem;
+        }
+
+        /* GRID */
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+            gap:25px;
+            margin-top:20px;
+        }
+
+        /* CARDS */
+        .card{
+            background:var(--roma-white);
+            padding:25px;
+            border-radius:12px;
+            border-top:4px solid var(--roma-blue);
+            box-shadow:0 4px 12px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .card h3{
+            color:var(--roma-blue);
+            margin-bottom:10px;
+        }
+
+        /* CONTACTS */
+        .contact-box p{
+            margin-bottom:12px;
+            font-size:1rem;
+        }
+
+        .whatsapp-btn{
+            background:#25D366;
+            color:white;
+            padding:12px 25px;
+            text-decoration:none;
+            border-radius:30px;
+            font-weight:bold;
+            display:inline-block;
+            margin-top:20px;
+            transition:0.3s;
+        }
+
+        .whatsapp-btn:hover{
+            background:#128C7E;
+            transform:scale(1.05);
+        }
+
+        /* FOOTER */
+        footer{
+            background:var(--roma-blue);
+            color:white;
+            text-align:center;
+            padding:2rem;
+            margin-top:40px;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px){
+
+            .nav-container{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .hero h1{
+                font-size:2.5rem;
+            }
+
+            .main-logo{
+                width:160px;
+            }
+
+            nav{
+                justify-content:center;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
+    <!-- HEADER -->
     <header>
         <div class="nav-container">
-            <!-- Ensure your file in GitHub is named logo.png -->
-            <img src="logo.png" alt="ROMA SC Logo" class="logo-img">
+
+            <!-- ADD YOUR LOGO HERE -->
+            <!-- Save your attached image as logo.png in the same folder -->
+            <img src="logo.png.png" alt="ROMA SC Logo" class="logo-img">
+
             <nav>
                 <a href="#about">About</a>
                 <a href="#history">History</a>
@@ -57,50 +240,127 @@
         </div>
     </header>
 
+    <!-- HERO -->
     <div class="hero">
-        <img src="logo.png" alt="ROMA SC" class="main-logo">
-        <h1 style="font-size: 3rem; margin: 0;">ROMA SC</h1>
-        <p style="font-size: 1.3rem; color: var(--roma-blue); font-weight: bold;">Rongena/Manaret Sporting Club</p>
+
+        <!-- MAIN BIG LOGO -->
+        <img src="logo.png.png" alt="ROMA SC" class="main-logo">
+
+        <h1>ROMA SC</h1>
+
+        <p>Rongena/Manaret Sporting Club</p>
+
     </div>
 
+    <!-- ABOUT -->
     <section id="about">
+
         <h2>About the Club</h2>
-        <p>Formed in <strong>2026</strong>, ROMA SC is a community-driven football club dedicated to professional excellence in the <strong>Kenyan Division 1 League</strong>. We are proud to represent our local community from our base at the <strong>Kisabei Grounds</strong>.</p>
+
+        <p>
+            Formed in <strong>2026</strong>, ROMA SC is a community-driven football club dedicated to professional excellence in the 
+            <strong>Kenyan Division 1 League</strong>.
+        </p>
+
+        <p>
+            We proudly represent the communities of Rongena and Manaret from our home base at 
+            <strong>Kisabei Grounds</strong>.
+        </p>
+
     </section>
 
+    <!-- HISTORY -->
     <section id="history" class="section-light">
+
         <h2>Our History</h2>
-        <p>ROMA SC was founded in 2026 by <strong>Legends from the former Kisabei FC</strong>. We came together to build a professional path for the next generation of footballers in the Rongena and Manaret areas.</p>
+
+        <p>
+            ROMA SC was founded in 2026 by legends from the former 
+            <strong>Kisabei FC</strong>.
+        </p>
+
+        <p>
+            The club was created to provide a professional football pathway for talented young players and to build a lasting sporting legacy in the region.
+        </p>
+
     </section>
 
+    <!-- MANAGEMENT -->
     <section id="management">
+
         <h2>Club Leadership</h2>
-        <div class="grid">
-            <div class="card"><h3>Collins Kirui</h3><p>Chairman</p></div>
-            <div class="card"><h3>Lawrence Langat</h3><p>Head Coach</p></div>
-            <div class="card"><h3>Hassan Kipkirui</h3><p>Team Manager</p></div>
-        </div>
-    </section>
 
-    <section id="contacts" class="section-light">
-        <h2>Connect With Us</h2>
         <div class="grid">
-            <div>
-                <p><strong>📞 Mobile:</strong> +254 734 556 903</p>
-                <p><strong>✉️ Email:</strong> romasc@romaclub.co.ke</p>
-                <p><strong>📘 Facebook:</strong> romasc</p>
-                <p><strong>🎵 TikTok:</strong> @romasportingclub</p>
-                <a href="https://wa.me" class="whatsapp-btn">Chat on WhatsApp</a>
-            </div>
+
             <div class="card">
-                <h3>Our Grounds</h3>
-                <p>Kisabei Grounds, Kenya<br>Home of the Phoenix</p>
+                <h3>Collins Kirui</h3>
+                <p>Chairman</p>
             </div>
+
+            <div class="card">
+                <h3>Lawrence Langat</h3>
+                <p>Head Coach</p>
+            </div>
+
+            <div class="card">
+                <h3>Hassan Kipkirui</h3>
+                <p>Team Manager</p>
+            </div>
+
         </div>
+
     </section>
 
+    <!-- CONTACT -->
+    <section id="contacts" class="section-light">
+
+        <h2>Connect With Us</h2>
+
+        <div class="grid">
+
+            <div class="contact-box">
+
+                <p><strong>📞 Mobile:</strong> +254 734 556 903</p>
+
+                <p><strong>✉️ Email:</strong> romasc@romaclub.co.ke</p>
+
+                <p><strong>📘 Facebook:</strong> @romasc</p>
+
+                <p><strong>🎵 TikTok:</strong> @romasportingclub</p>
+
+                <a href="https://wa.me" class="whatsapp-btn">
+                    Chat on WhatsApp
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Our Grounds</h3>
+
+                <p>
+                    Kisabei Grounds, Kenya
+                    <br>
+                    Home of the Phoenix
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 ROMA SC - All Rights Reserved.<br>Based at Kisabei Grounds, Kenya</p>
+
+        <p>
+            &copy; 2026 ROMA SC — Rongena/Manaret Sporting Club
+        </p>
+
+        <p>
+            Based at Kisabei Grounds, Kenya
+        </p>
+
     </footer>
 
 </body>
