@@ -78,6 +78,7 @@
             font-weight:bold;
             transition:0.3s;
             display:inline-block;
+            border:none;
         }
 
         .upload-btn:hover{
@@ -284,6 +285,64 @@
             font-weight:bold;
         }
 
+        /* SQUAD TABLE */
+
+        .squad-table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .squad-table th{
+            background:var(--roma-blue);
+            color:white;
+            padding:15px;
+            text-align:left;
+        }
+
+        .squad-table td{
+            padding:12px;
+            border-bottom:1px solid #ddd;
+        }
+
+        .squad-table input{
+            width:100%;
+            padding:8px;
+            border:1px solid #ccc;
+            border-radius:6px;
+        }
+
+        .player-photo{
+            width:70px;
+            height:70px;
+            object-fit:cover;
+            border-radius:8px;
+            border:2px solid var(--roma-blue);
+            margin-top:10px;
+        }
+
+        .save-btn{
+            background:green;
+            color:white;
+            border:none;
+            padding:8px 15px;
+            border-radius:6px;
+            cursor:pointer;
+            margin-right:5px;
+        }
+
+        .delete-btn{
+            background:red;
+            color:white;
+            border:none;
+            padding:8px 15px;
+            border-radius:6px;
+            cursor:pointer;
+        }
+
         /* FOOTER */
 
         footer{
@@ -343,8 +402,6 @@
 
             </div>
 
-            <!-- LOGO UPLOAD -->
-
             <div>
 
                 <label for="logoUpload" class="upload-btn">
@@ -388,18 +445,6 @@
             ROMA SC (Rongena/Manaret Sporting Club) is a modern football institution founded in 2026 with a mission of developing football talent, promoting discipline, strengthening community unity, and building a professional sporting culture within the Rongena and Manaret regions.
         </p>
 
-        <p>
-            The club was formed through the efforts of passionate football lovers, former Kisabei FC legends, local leaders, and dedicated sports stakeholders who shared a vision of creating a competitive football club capable of representing the region proudly at national levels.
-        </p>
-
-        <p>
-            ROMA SC proudly calls Kisabei Grounds its home. The grounds symbolize passion, resilience, teamwork, and community pride. The club aims to create opportunities for young footballers while inspiring the next generation through sportsmanship and professionalism.
-        </p>
-
-        <p>
-            Guided by strong values of unity, discipline, ambition, and hard work, ROMA SC continues to grow as one of the most promising football projects in the region. The club’s identity is represented by the Phoenix — a symbol of strength, rebirth, determination, and rising above challenges.
-        </p>
-
     </section>
 
     <!-- MAIN SECTION -->
@@ -418,6 +463,10 @@
 
             <button onclick="showTab('management')">
                 Management
+            </button>
+
+            <button onclick="showTab('squad')">
+                Squad
             </button>
 
             <button onclick="showTab('fixtures')">
@@ -448,10 +497,6 @@
                     ROMA SC was officially founded in 2026 after former Kisabei FC legends came together with a vision of reviving competitive football in the region.
                 </p>
 
-                <p>
-                    The club was created to build a strong football pathway for talented players while promoting discipline, professionalism, and community unity through sport.
-                </p>
-
             </div>
 
             <!-- MANAGEMENT -->
@@ -465,7 +510,6 @@
                     <div class="card">
                         <h3>Collins Kirui</h3>
                         <p>Chairman</p>
-                        <p>He started playing football while at Kipngosos Primary School before continuing at Ngariet Secondary School. During his time in secondary school, he joined Kipngosos FC, a local-based football club. He later moved to Kisabei FC, the most dreaded side in the ward, where he spent most of his senior football career, winning several trophies and awards before retiring in 2020</p>
                     </div>
 
                     <div class="card">
@@ -482,6 +526,42 @@
 
             </div>
 
+            <!-- SQUAD -->
+
+            <div id="squad" class="tab-content">
+
+                <h2>Squad</h2>
+
+                <button class="upload-btn" onclick="addPlayerRow()" style="margin-bottom:20px;">
+                    Add Player
+                </button>
+
+                <div style="overflow-x:auto;">
+
+                    <table class="squad-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>NAME</th>
+                                <th>DATE OF BIRTH</th>
+                                <th>AGE</th>
+                                <th>PHOTO</th>
+                                <th>ACTION</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="squadTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
             <!-- FIXTURES -->
 
             <div id="fixtures" class="tab-content">
@@ -491,11 +571,6 @@
                 <div class="fixture">
                     <h3>ROMA SC vs Kisumu Youth FC</h3>
                     <p>Saturday | 3:00 PM | Kisabei Grounds</p>
-                </div>
-
-                <div class="fixture">
-                    <h3>Bomet Stars vs ROMA SC</h3>
-                    <p>Wednesday | 2:00 PM | Bomet Stadium</p>
                 </div>
 
             </div>
@@ -540,8 +615,6 @@
 
                     <p><strong>📘 Facebook:</strong> @romasc</p>
 
-                    <p><strong>🎵 TikTok:</strong> @romasportingclub</p>
-
                     <a href="https://wa.me" class="whatsapp-btn">
                         Chat on WhatsApp
                     </a>
@@ -560,10 +633,6 @@
 
         <p>
             © 2026 ROMA SC — Rongena/Manaret Sporting Club
-        </p>
-
-        <p>
-            Home of the Phoenix | Kisabei Grounds, Kenya
         </p>
 
     </footer>
@@ -640,6 +709,117 @@
                 reader.readAsDataURL(file);
             }
         });
+
+        /* SQUAD TABLE FUNCTIONALITY */
+
+        function addPlayerRow(){
+
+            const tableBody = document.getElementById('squadTableBody');
+
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+
+                <td>
+                    <input type="text" placeholder="Player Name">
+                </td>
+
+                <td>
+                    <input type="date" class="dob-input">
+                </td>
+
+                <td>
+                    <input type="text" class="age-input" readonly>
+                </td>
+
+                <td>
+                    <input type="file" accept="image/*" class="photo-input">
+                    <img class="player-photo" src="" style="display:none;">
+                </td>
+
+                <td>
+                    <button class="save-btn">Save</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+
+            const dobInput = row.querySelector('.dob-input');
+
+            const ageInput = row.querySelector('.age-input');
+
+            const photoInput = row.querySelector('.photo-input');
+
+            const playerPhoto = row.querySelector('.player-photo');
+
+            const saveBtn = row.querySelector('.save-btn');
+
+            const deleteBtn = row.querySelector('.delete-btn');
+
+            /* AUTO AGE CALCULATION */
+
+            dobInput.addEventListener('change', function(){
+
+                const dob = new Date(this.value);
+
+                const today = new Date();
+
+                let age = today.getFullYear() - dob.getFullYear();
+
+                const monthDifference = today.getMonth() - dob.getMonth();
+
+                if(
+                    monthDifference < 0 ||
+                    (monthDifference === 0 && today.getDate() < dob.getDate())
+                ){
+                    age--;
+                }
+
+                ageInput.value = age;
+            });
+
+            /* PHOTO PREVIEW */
+
+            photoInput.addEventListener('change', function(event){
+
+                const file = event.target.files[0];
+
+                if(file){
+
+                    const reader = new FileReader();
+
+                    reader.onload = function(e){
+
+                        playerPhoto.src = e.target.result;
+
+                        playerPhoto.style.display = 'block';
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            /* SAVE BUTTON */
+
+            saveBtn.addEventListener('click', function(){
+
+                const inputs = row.querySelectorAll('input');
+
+                inputs.forEach(input => {
+                    input.setAttribute('disabled', true);
+                });
+
+                alert('Player saved successfully!');
+            });
+
+            /* DELETE BUTTON */
+
+            deleteBtn.addEventListener('click', function(){
+
+                row.remove();
+            });
+        }
 
     </script>
 
