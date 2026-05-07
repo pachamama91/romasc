@@ -7,46 +7,47 @@
     <style>
         :root {
             --roma-blue: #1a75ff; 
-            --roma-grey: #2c2c2c; /* Professional Grey Background */
-            --roma-dark-card: #1f1f1f;
+            --roma-grey: #4a4a4a; /* Lighter, clearer grey background */
+            --roma-white: #ffffff;
+            --roma-dark-grey: #333333;
         }
 
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: #ffffff; background-color: var(--roma-grey); scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: var(--roma-white); background-color: var(--roma-grey); scroll-behavior: smooth; }
         
-        header { background: #000000; color: #fff; padding: 0.5rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 3px solid var(--roma-blue); }
+        header { background: #000000; color: #fff; padding: 10px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 3px solid var(--roma-blue); }
         .nav-container { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: auto; padding: 0 20px; }
         
         /* Logo Fix */
-        .logo-img { height: 50px; width: auto; }
+        .logo-img { height: 50px; width: auto; background: transparent; }
         
-        nav { display: flex; gap: 15px; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        nav { display: flex; gap: 20px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
         nav a:hover { color: var(--roma-blue); }
         
-        .hero { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://unsplash.com'); 
-                height: 450px; background-size: cover; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 60px; }
-        .hero .main-logo { width: 160px; height: auto; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(26, 117, 255, 0.5)); }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com'); 
+                height: 400px; background-size: cover; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 60px; }
+        .hero .main-logo { width: 150px; height: auto; margin-bottom: 15px; }
         
         section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
-        .section-dark { background-color: #222222; }
+        .section-light { background-color: var(--roma-dark-grey); }
         
-        h2 { color: var(--roma-blue); text-transform: uppercase; border-left: 5px solid var(--roma-blue); padding-left: 15px; margin-bottom: 25px; }
+        h2 { color: var(--roma-blue); text-transform: uppercase; border-left: 5px solid var(--roma-blue); padding-left: 15px; margin-bottom: 25px; font-size: 1.8rem; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
-        .card { background: var(--roma-dark-card); padding: 25px; border-radius: 12px; border-top: 4px solid var(--roma-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .card { background: #555555; padding: 25px; border-radius: 10px; border-top: 4px solid var(--roma-blue); }
         
         .whatsapp-btn { background: #25D366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .whatsapp-btn:hover { transform: scale(1.05); background: #128C7E; }
+        .whatsapp-btn:hover { background: #128C7E; }
 
-        footer { background: #000; color: #888; text-align: center; padding: 2.5rem; border-top: 1px solid #333; }
+        footer { background: #000; color: #bbb; text-align: center; padding: 2rem; border-top: 1px solid #444; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="nav-container">
-            <!-- This looks for logo.png in your GitHub repository -->
-            <img src="logo.png" alt="ROMA SC" class="logo-img">
+            <!-- Ensure your file in GitHub is named logo.png -->
+            <img src="logo.png" alt="ROMA SC Logo" class="logo-img">
             <nav>
                 <a href="#about">About</a>
                 <a href="#history">History</a>
@@ -57,19 +58,19 @@
     </header>
 
     <div class="hero">
-        <img src="logo.png" alt="ROMA SC Logo" class="main-logo">
-        <h1>ROMA SC</h1>
-        <p style="font-size: 1.2rem; letter-spacing: 1px; color: var(--roma-blue);">Rongena/Manaret Sporting Club | Kenyan Division 1</p>
+        <img src="logo.png" alt="ROMA SC" class="main-logo">
+        <h1 style="font-size: 3rem; margin: 0;">ROMA SC</h1>
+        <p style="font-size: 1.3rem; color: var(--roma-blue); font-weight: bold;">Rongena/Manaret Sporting Club</p>
     </div>
 
     <section id="about">
         <h2>About the Club</h2>
-        <p>Formed in <strong>2026</strong>, ROMA SC is a community-driven football club dedicated to professional excellence in the <strong>Kenyan Division 1 League</strong>. Based at the <strong>Kisabei Grounds</strong>, we represent the talent and passion of our local community.</p>
+        <p>Formed in <strong>2026</strong>, ROMA SC is a community-driven football club dedicated to professional excellence in the <strong>Kenyan Division 1 League</strong>. We are proud to represent our local community from our base at the <strong>Kisabei Grounds</strong>.</p>
     </section>
 
-    <section id="history" class="section-dark">
-        <h2>History</h2>
-        <p>ROMA SC (Rongena/Manaret Sporting Club) was founded in 2026 as a community club. We were formed by <strong>Legends from the former Kisabei FC</strong> who came together to create a professional path for the next generation of footballers. We are proud to call the Kisabei Grounds our home.</p>
+    <section id="history" class="section-light">
+        <h2>Our History</h2>
+        <p>ROMA SC was founded in 2026 by <strong>Legends from the former Kisabei FC</strong>. We came together to build a professional path for the next generation of footballers in the Rongena and Manaret areas.</p>
     </section>
 
     <section id="management">
@@ -81,7 +82,7 @@
         </div>
     </section>
 
-    <section id="contacts" class="section-dark">
+    <section id="contacts" class="section-light">
         <h2>Connect With Us</h2>
         <div class="grid">
             <div>
@@ -92,14 +93,14 @@
                 <a href="https://wa.me" class="whatsapp-btn">Chat on WhatsApp</a>
             </div>
             <div class="card">
-                <h3>Our Base</h3>
+                <h3>Our Grounds</h3>
                 <p>Kisabei Grounds, Kenya<br>Home of the Phoenix</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ROMA SC - All Rights Reserved.<br>Designed for Rongena/Manaret Sporting Club</p>
+        <p>&copy; 2026 ROMA SC - All Rights Reserved.<br>Based at Kisabei Grounds, Kenya</p>
     </footer>
 
 </body>
