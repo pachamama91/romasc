@@ -10,32 +10,31 @@
 <style>
 
 /* =======================
-   THEME COLORS (UPDATED)
+   THEME
 ======================= */
 
 :root{
-    --roma-gold:#ff7a00;   /* ORANGE MAIN THEME */
-    --roma-light:#f5f8ff;
-    --roma-dark:#222222;
+    --roma-primary:#ff7a00;
+    --roma-dark:#1e1e1e;
+    --roma-light:#f5f7fb;
     --roma-white:#ffffff;
-    --roma-grey:#e9eef5;
+    --roma-grey:#e6eaf0;
 }
 
 /* =======================
-   GLOBAL RESET
+   GLOBAL
 ======================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Segoe UI, Arial, sans-serif;
 }
 
 body{
-    font-family:'Segoe UI', Arial, sans-serif;
     background:var(--roma-white);
     color:var(--roma-dark);
-    line-height:1.7;
 }
 
 /* =======================
@@ -47,18 +46,18 @@ header{
     top:0;
     width:100%;
     background:white;
-    border-bottom:3px solid var(--roma-gold);
+    border-bottom:3px solid var(--roma-primary);
     z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
 }
 
 .header-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 25px;
     max-width:1200px;
     margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:12px 20px;
 }
 
 .header-left{
@@ -68,31 +67,30 @@ header{
 }
 
 #clubLogo{
-    width:70px;
-    height:70px;
+    width:65px;
+    height:65px;
     object-fit:contain;
 }
 
 .club-name{
     font-size:2rem;
-    font-weight:800;
-    color:var(--roma-gold);
+    font-weight:900;
+    color:var(--roma-primary);
 }
 
 /* =======================
-   BUTTONS
+   BUTTON
 ======================= */
 
 .upload-btn{
-    background:var(--roma-gold);
+    background:var(--roma-primary);
     color:white;
-    padding:10px 20px;
-    border-radius:30px;
+    padding:10px 18px;
+    border-radius:25px;
+    border:none;
     cursor:pointer;
     font-weight:bold;
     transition:0.3s;
-    display:inline-block;
-    border:none;
 }
 
 .upload-btn:hover{
@@ -104,55 +102,56 @@ header{
 ======================= */
 
 .hero{
-    margin-top:95px;
-    background:
-    linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.92)),
-    url('https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1200&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
+    margin-top:90px;
     text-align:center;
     padding:70px 20px;
-}
-
-#heroLogo{
-    width:230px;
-    max-width:90%;
-    margin-bottom:20px;
+    background:linear-gradient(white, #fff3e8);
 }
 
 .hero h1{
     font-size:4rem;
-    color:var(--roma-dark);
 }
 
 .hero p{
-    font-size:1.3rem;
-    color:var(--roma-gold);
+    color:var(--roma-primary);
     font-weight:bold;
 }
 
+#heroLogo{
+    width:200px;
+    margin-bottom:15px;
+}
+
 /* =======================
-   ABOUT
+   DASHBOARD STATS
 ======================= */
 
-.about-club{
-    max-width:1150px;
-    margin:auto;
-    padding:70px 20px;
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
 }
 
-.about-club h2{
-    color:var(--roma-gold);
-    font-size:2.2rem;
-    border-left:6px solid var(--roma-gold);
-    padding-left:15px;
-    margin-bottom:30px;
+.stat-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    border-top:4px solid var(--roma-primary);
+    transition:0.3s;
 }
 
-.about-club p{
-    margin-bottom:20px;
-    font-size:1.08rem;
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.stat-card h2{
+    color:var(--roma-primary);
+    font-size:2rem;
 }
 
 /* =======================
@@ -167,44 +166,39 @@ header{
 
 .sidebar{
     width:260px;
-    background:var(--roma-gold);
+    background:var(--roma-primary);
     min-height:100vh;
     padding-top:30px;
 }
 
 .sidebar h3{
-    color:white;
     text-align:center;
-    margin-bottom:30px;
-    font-size:1.5rem;
+    color:white;
+    margin-bottom:20px;
 }
 
 .sidebar button{
     width:100%;
+    padding:15px;
     border:none;
     background:none;
     color:white;
     text-align:left;
-    padding:18px 25px;
-    font-size:1rem;
     cursor:pointer;
     transition:0.3s;
-    border-left:4px solid transparent;
 }
 
 .sidebar button:hover{
-    background:rgba(255,255,255,0.12);
-    border-left:4px solid white;
+    background:rgba(255,255,255,0.15);
+    padding-left:25px;
 }
 
-/* =======================
-   CONTENT
-======================= */
+/* CONTENT */
 
 .content{
     flex:1;
     background:var(--roma-light);
-    padding:50px;
+    padding:40px;
 }
 
 .tab-content{
@@ -221,77 +215,11 @@ header{
     to{opacity:1; transform:translateY(0);}
 }
 
-.tab-content h2{
-    color:var(--roma-gold);
-    font-size:2rem;
-    border-left:6px solid var(--roma-gold);
-    padding-left:15px;
-    margin-bottom:30px;
-}
-
-/* =======================
-   CARDS
-======================= */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    border-top:4px solid var(--roma-gold);
-}
-
-.card h3{
-    color:var(--roma-gold);
-}
-
-/* =======================
-   FIXTURES
-======================= */
-
-.fixture{
-    background:white;
-    padding:20px;
+h2{
+    color:var(--roma-primary);
     margin-bottom:20px;
-    border-left:5px solid var(--roma-gold);
-    border-radius:10px;
-}
-
-/* =======================
-   GALLERY
-======================= */
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.gallery img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-    border-radius:12px;
-}
-
-/* =======================
-   CONTACT
-======================= */
-
-.whatsapp-btn{
-    display:inline-block;
-    margin-top:20px;
-    background:#25D366;
-    color:white;
-    padding:12px 25px;
-    border-radius:30px;
-    font-weight:bold;
+    border-left:5px solid var(--roma-primary);
+    padding-left:10px;
 }
 
 /* =======================
@@ -307,26 +235,23 @@ header{
 }
 
 .squad-table th{
-    background:var(--roma-gold);
+    background:var(--roma-primary);
     color:white;
-    padding:15px;
+    padding:12px;
 }
 
 .squad-table td{
-    padding:12px;
+    padding:10px;
     border-bottom:1px solid #ddd;
 }
 
-.squad-table input{
-    width:100%;
-    padding:8px;
-    border:1px solid #ccc;
-    border-radius:6px;
+.squad-table tr:hover{
+    background:#fff3e8;
 }
 
-/* 🔥 AGE FIX (GLOBAL ORANGE) */
+/* AGE ORANGE */
 .age-input{
-    color:var(--roma-gold);
+    color:var(--roma-primary);
     font-weight:bold;
 }
 
@@ -335,10 +260,11 @@ header{
 ======================= */
 
 footer{
-    background:var(--roma-gold);
+    background:var(--roma-primary);
     color:white;
     text-align:center;
-    padding:30px;
+    padding:25px;
+    margin-top:40px;
 }
 
 /* =======================
@@ -346,18 +272,12 @@ footer{
 ======================= */
 
 @media(max-width:900px){
-
     .main-layout{
         flex-direction:column;
     }
 
     .sidebar{
         width:100%;
-        min-height:auto;
-    }
-
-    .content{
-        padding:25px;
     }
 
     .hero h1{
@@ -370,6 +290,7 @@ footer{
 
 <body>
 
+<!-- HEADER -->
 <header>
 <div class="header-container">
 <div class="header-left">
@@ -377,77 +298,99 @@ footer{
 <div class="club-name">ROMA SC</div>
 </div>
 
-<label for="logoUpload" class="upload-btn">Upload Club Logo</label>
-<input type="file" id="logoUpload" accept="image/*" hidden>
+<label class="upload-btn">Upload Logo
+<input type="file" id="logoUpload" hidden>
+</label>
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-<img id="heroLogo" src="https://via.placeholder.com/400x400.png?text=ROMA+SC">
+<img id="heroLogo" src="https://via.placeholder.com/300x300.png?text=ROMA+SC">
 <h1>ROMA SC</h1>
 <p>Rongena / Manaret Sporting Club</p>
 </section>
 
-<section class="about-club">
-<h2>About the Club</h2>
-<p>ROMA SC is a modern football institution founded in 2026...</p>
-</section>
+<!-- STATS DASHBOARD -->
+<div class="stats">
 
+<div class="stat-card">
+<h2>32</h2>
+<p>Players</p>
+</div>
+
+<div class="stat-card">
+<h2>18</h2>
+<p>Matches</p>
+</div>
+
+<div class="stat-card">
+<h2>12</h2>
+<p>Wins</p>
+</div>
+
+<div class="stat-card">
+<h2>4</h2>
+<p>Trophies</p>
+</div>
+
+</div>
+
+<!-- MAIN -->
 <div class="main-layout">
 
 <aside class="sidebar">
-<h3>Club Menu</h3>
-<button onclick="showTab('history')">Our History</button>
-<button onclick="showTab('management')">Management</button>
+<h3>MENU</h3>
 <button onclick="showTab('squad')">Squad</button>
 <button onclick="showTab('fixtures')">Fixtures</button>
 <button onclick="showTab('gallery')">Gallery</button>
-<button onclick="showTab('contacts')">Contacts</button>
 </aside>
 
 <main class="content">
 
-<div id="history" class="tab-content active">
-<h2>Our History</h2>
-<p>ROMA SC was founded in 2026...</p>
-</div>
-
-<div id="management" class="tab-content">
-<h2>Management</h2>
-<div class="grid">
-<div class="card"><h3>Collins Kirui</h3><p>Chairman</p></div>
-<div class="card"><h3>Lawrence Langat</h3><p>Coach</p></div>
-</div>
-</div>
-
-<div id="squad" class="tab-content">
+<div id="squad" class="tab-content active">
 <h2>Squad</h2>
+
+<table class="squad-table">
+<tr>
+<th>Name</th>
+<th>DOB</th>
+<th>Age</th>
+</tr>
+
+<tr>
+<td>Player Example</td>
+<td>2000-01-01</td>
+<td class="age-input">26</td>
+</tr>
+
+</table>
 </div>
 
 <div id="fixtures" class="tab-content">
 <h2>Fixtures</h2>
+<p>ROMA SC vs Kisumu Youth FC</p>
 </div>
 
 <div id="gallery" class="tab-content">
 <h2>Gallery</h2>
-</div>
-
-<div id="contacts" class="tab-content">
-<h2>Contacts</h2>
+<p>Upload match photos coming soon...</p>
 </div>
 
 </main>
 </div>
 
 <footer>
-© 2026 ROMA SC
+© 2026 ROMA SC | Built for champions
 </footer>
 
 <script>
+
 function showTab(id){
 document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 }
+
 </script>
 
 </body>
