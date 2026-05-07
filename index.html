@@ -4,203 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROMA SC | Rongena/Manaret Sporting Club</title>
-    <script src="https://tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         :root {
-            --roma-orange: #FF6600;
-            --roma-white: #FFFFFF;
+            --primary-orange: #FF8C00;
+            --secondary-white: #FFFFFF;
+            --text-dark: #333;
+            --sidebar-width: 250px;
         }
-        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; scroll-behavior: smooth; }
-        .sidebar { background-color: var(--roma-orange); color: white; }
-        .sidebar a:hover { background-color: rgba(255, 255, 255, 0.2); }
-        .orange-text { color: var(--roma-orange); }
-        .btn-orange { background-color: var(--roma-orange); color: white; }
-        .btn-orange:hover { background-color: #e65c00; }
+
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; display: flex; background-color: #f4f4f4; color: var(--text-dark); }
+
+        /* Sidebar Navigation */
+        nav {
+            width: var(--sidebar-width);
+            background: var(--primary-orange);
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-section { text-align: center; padding: 10px; }
+        #club-logo { max-width: 120px; border-radius: 50%; border: 3px solid white; margin-bottom: 10px; }
+        
+        nav ul { list-style: none; padding: 0; }
+        nav ul li { padding: 15px 25px; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        nav ul li:hover { background: rgba(255,255,255,0.2); }
+
+        /* Main Content */
+        main {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            width: 100%;
+        }
+
+        .section { display: none; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .section.active { display: block; animation: fadeIn 0.5s; }
+
+        h1, h2 { color: var(--primary-orange); border-bottom: 2px solid var(--primary-orange); padding-bottom: 10px; }
+
+        /* Squad Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: var(--primary-orange); color: white; }
+        .age-animate { font-weight: bold; color: var(--primary-orange); display: inline-block; transition: transform 0.3s; }
+        .age-animate:hover { transform: scale(1.2); }
+
+        /* Management & Fixtures */
+        .card { border-left: 5px solid var(--primary-orange); background: #fff9f0; padding: 15px; margin: 10px 0; border-radius: 4px; }
+
+        /* Gallery */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery-item { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; border: 2px solid #ddd; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
-<body class="flex">
+<body>
 
-    <!-- Sidebar -->
-    <aside class="sidebar w-64 min-h-screen fixed left-0 top-0 p-6 flex flex-col z-10">
-        <div class="mb-8 text-center">
-            <div class="w-24 h-24 bg-white rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                <!-- Placeholder for Logo -->
-                <span class="text-orange-600 font-bold text-xl">ROMA SC</span>
-            </div>
-            <h1 class="font-bold text-xl uppercase tracking-wider">ROMA SC</h1>
-            <p class="text-xs opacity-80">Est. 2026</p>
+    <nav>
+        <div class="logo-section">
+            <img id="club-logo" src="https://placeholder.com" alt="Logo">
+            <p><strong>ROMA SC</strong><br><small>Est. 2026</small></p>
+            <input type="file" id="logo-upload" accept="image/*" style="font-size: 10px; color: white;">
         </div>
+        <ul>
+            <li onclick="showSection('about')">About the Club</li>
+            <li onclick="showSection('history')">Our History</li>
+            <li onclick="showSection('squad')">Squad</li>
+            <li onclick="showSection('fixtures')">Upcoming Fixtures</li>
+            <li onclick="showSection('gallery')">Gallery</li>
+            <li onclick="showSection('management')">Management</li>
+            <li onclick="showSection('contacts')">Contacts</li>
+        </ul>
+    </nav>
 
-        <nav class="flex-1 space-y-2">
-            <a href="#about" class="block p-3 rounded transition"><i class="fas fa-info-circle mr-2"></i> About the Club</a>
-            <a href="#history" class="block p-3 rounded transition"><i class="fas fa-history mr-2"></i> Our History</a>
-            <a href="#management" class="block p-3 rounded transition"><i class="fas fa-users-cog mr-2"></i> Management</a>
-            <a href="#squad" class="block p-3 rounded transition"><i class="fas fa-running mr-2"></i> Squad</a>
-            <a href="#fixtures" class="block p-3 rounded transition"><i class="fas fa-calendar-alt mr-2"></i> Fixtures</a>
-            <a href="#gallery" class="block p-3 rounded transition"><i class="fas fa-images mr-2"></i> Gallery</a>
-            <a href="#contacts" class="block p-3 rounded transition"><i class="fas fa-phone-alt mr-2"></i> Contacts</a>
-        </nav>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="ml-64 w-full">
-        <!-- Hero Section with Animated Age -->
-        <section class="h-64 bg-white border-b flex flex-col items-center justify-center text-center p-8">
-            <h2 class="text-4xl font-extrabold orange-text mb-2">RONGENA/MANARET SPORTING CLUB</h2>
-            <div class="text-2xl font-semibold text-gray-700">
-                Club Age: <span id="club-age" class="orange-text text-5xl">0</span> Years
-            </div>
+    <main>
+        <!-- About Section -->
+        <section id="about" class="section active">
+            <h1>About ROMA SC</h1>
+            <p><strong>Rongena/Manaret Sporting Club (ROMA SC)</strong> is a premier sporting institution established in 2026. We are dedicated to nurturing local talent and fostering a spirit of sportsmanship in our community.</p>
         </section>
 
-        <div class="p-10 space-y-20 max-w-5xl mx-auto">
-            
-            <!-- About Section -->
-            <section id="about">
-                <h3 class="text-3xl font-bold orange-text mb-6 border-l-8 border-orange-600 pl-4">About the Club</h3>
-                <p class="text-gray-700 leading-relaxed text-justify">
-                    ROMA SC (Rongena/Manaret Sporting Club) is a modern football institution founded in 2026 with a strong vision of nurturing football talent, promoting discipline, strengthening community unity, and building a professional sporting culture within the Rongena and Manaret regions. The club was established by legendary former players of Kisabei FC... (Content shortened for brevity, but stays true to your description).
-                </p>
-            </section>
+        <!-- History Section -->
+        <section id="history" class="section">
+            <h1>Our History</h1>
+            <p>Founded in 2026, ROMA SC emerged from the vibrant athletic cultures of Rongena and Manaret. Despite being a new club, our roots run deep in the local community's passion for the game.</p>
+        </section>
 
-            <!-- History Section -->
-            <section id="history" class="bg-orange-50 p-8 rounded-xl">
-                <h3 class="text-3xl font-bold orange-text mb-6">Our History</h3>
-                <p class="text-gray-700 leading-relaxed text-justify">
-                    ROMA SC was officially founded in 2026 after a group of respected former Kisabei FC legends came together... (Content flows from your description of the Kisabei FC legacy).
-                </p>
-            </section>
+        <!-- Squad Section -->
+        <section id="squad" class="section">
+            <h1>Club Squad</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Name</th>
+                        <th>D.O.B</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody id="squad-body">
+                    <!-- Sample Data -->
+                    <tr>
+                        <td>📸</td>
+                        <td>John Doe</td>
+                        <td>2004-05-12</td>
+                        <td><span class="age-animate" data-dob="2004-05-12">0</span></td>
+                    </tr>
+                    <tr>
+                        <td>📸</td>
+                        <td>Jane Smith</td>
+                        <td>1999-11-20</td>
+                        <td><span class="age-animate" data-dob="1999-11-20">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-            <!-- Management Section -->
-            <section id="management">
-                <h3 class="text-3xl font-bold orange-text mb-8">Management</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white shadow p-6 rounded text-center border-t-4 border-orange-500">
-                        <p class="font-bold text-lg">Collins Kirui</p>
-                        <p class="text-orange-600">Chairman</p>
-                    </div>
-                    <div class="bg-white shadow p-6 rounded text-center border-t-4 border-orange-500">
-                        <p class="font-bold text-lg">Lawrence Langat</p>
-                        <p class="text-orange-600">Head Coach</p>
-                    </div>
-                    <div class="bg-white shadow p-6 rounded text-center border-t-4 border-orange-500">
-                        <p class="font-bold text-lg">Hassan Kipkirui</p>
-                        <p class="text-orange-600">Team Manager</p>
-                    </div>
-                </div>
-            </section>
+        <!-- Fixtures Section -->
+        <section id="fixtures" class="section">
+            <h1>Upcoming Fixtures</h1>
+            <div class="card"><strong>May 15:</strong> ROMA SC vs. Rongena Rangers - 16:00 PM</div>
+            <div class="card"><strong>May 22:</strong> Manaret United vs. ROMA SC - 15:30 PM</div>
+            <div class="card"><strong>June 02:</strong> ROMA SC vs. City Strikers - 14:00 PM</div>
+            <div class="card"><strong>June 10:</strong> Coastal FC vs. ROMA SC - 16:00 PM</div>
+            <div class="card"><strong>June 18:</strong> ROMA SC vs. Valley Heroes - 15:00 PM</div>
+        </section>
 
-            <!-- Squad Table -->
-            <section id="squad">
-                <h3 class="text-3xl font-bold orange-text mb-6">Squad</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full bg-white shadow rounded-lg overflow-hidden">
-                        <thead class="bg-orange-600 text-white">
-                            <tr>
-                                <th class="p-4 text-left">Photo</th>
-                                <th class="p-4 text-left">Name</th>
-                                <th class="p-4 text-left">D.O.B</th>
-                                <th class="p-4 text-left">Age</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr>
-                                <td class="p-4"><div class="w-12 h-12 bg-gray-200 rounded-full"></div></td>
-                                <td class="p-4 font-semibold">John Doe</td>
-                                <td class="p-4 text-gray-600">12/05/2004</td>
-                                <td class="p-4">22</td>
-                            </tr>
-                            <!-- Add more rows here -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <h1>Gallery</h1>
+            <input type="file" id="gallery-upload" multiple accept="image/*">
+            <div class="gallery-grid" id="gallery-container"></div>
+        </section>
 
-            <!-- Upcoming Fixtures -->
-            <section id="fixtures">
-                <h3 class="text-3xl font-bold orange-text mb-6">Upcoming Fixtures</h3>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center bg-white p-4 shadow rounded border-l-4 border-orange-600">
-                        <span><strong>ROMA SC</strong> vs Nairobi United</span>
-                        <span class="text-sm bg-gray-100 px-3 py-1 rounded">June 12, 2026 - 15:00</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white p-4 shadow rounded border-l-4 border-orange-600">
-                        <span>Mombasa Stars vs <strong>ROMA SC</strong></span>
-                        <span class="text-sm bg-gray-100 px-3 py-1 rounded">June 19, 2026 - 16:00</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white p-4 shadow rounded border-l-4 border-orange-600">
-                        <span><strong>ROMA SC</strong> vs Kisumu Eagles</span>
-                        <span class="text-sm bg-gray-100 px-3 py-1 rounded">July 03, 2026 - 15:00</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white p-4 shadow rounded border-l-4 border-orange-600">
-                        <span>Nakuru Rangers vs <strong>ROMA SC</strong></span>
-                        <span class="text-sm bg-gray-100 px-3 py-1 rounded">July 10, 2026 - 14:00</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white p-4 shadow rounded border-l-4 border-orange-600">
-                        <span><strong>ROMA SC</strong> vs Eldoret Warriors</span>
-                        <span class="text-sm bg-gray-100 px-3 py-1 rounded">July 24, 2026 - 15:00</span>
-                    </div>
-                </div>
-            </section>
+        <!-- Management Section -->
+        <section id="management" class="section">
+            <h1>Management Team</h1>
+            <div class="card"><strong>Collins</strong> - Chairman</div>
+            <div class="card"><strong>Lawrence</strong> - Head Coach</div>
+            <div class="card"><strong>Hassan</strong> - Team Manager</div>
+        </section>
 
-            <!-- Gallery -->
-            <section id="gallery">
-                <h3 class="text-3xl font-bold orange-text mb-6">Gallery</h3>
-                <div class="bg-gray-100 border-2 border-dashed border-gray-300 p-10 text-center rounded-xl">
-                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
-                    <p class="mb-4">Share club moments with us</p>
-                    <input type="file" id="upload" class="hidden">
-                    <label for="upload" class="btn-orange px-6 py-2 rounded cursor-pointer">Upload Photo</label>
-                </div>
-            </section>
-
-            <!-- Contacts -->
-            <section id="contacts" class="pb-20">
-                <h3 class="text-3xl font-bold orange-text mb-6">Contacts</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-4 text-lg">
-                        <p><i class="fas fa-phone-alt orange-text mr-3"></i> +254 734 556 903</p>
-                        <p><i class="fas fa-envelope orange-text mr-3"></i> romasc@romaclub.co.ke</p>
-                        <p><i class="fab fa-facebook orange-text mr-3"></i> @romasc</p>
-                        <p><i class="fab fa-tiktok orange-text mr-3"></i> @romasc</p>
-                    </div>
-                    <div class="flex items-center">
-                        <a href="https://wa.me" class="bg-green-500 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-green-600 transition inline-block">
-                            <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <!-- Contacts Section -->
+        <section id="contacts" class="section">
+            <h1>Contact Us</h1>
+            <p>📞 <strong>Mobile:</strong> +254 734556903</p>
+            <p>💬 <strong>WhatsApp:</strong> +254 734556903</p>
+            <p>📘 <strong>Facebook:</strong> romasc</p>
+            <p>🌐 <strong>Website:</strong> <a href="http://romasc.co.ke" target="_blank">romasc.co.ke</a></p>
+        </section>
     </main>
 
     <script>
-        // Animate the Age
-        function animateAge() {
-            const currentYear = new Date().getFullYear();
-            const establishedYear = 2026;
-            const age = Math.max(0, currentYear - establishedYear);
-            const display = document.getElementById('club-age');
-            
-            let current = 0;
-            const duration = 2000; // 2 seconds
-            const stepTime = Math.abs(Math.floor(duration / (age || 1)));
-
-            if (age === 0) {
-                display.innerText = "New";
-                return;
-            }
-
-            const timer = setInterval(() => {
-                current += 1;
-                display.innerText = current;
-                if (current >= age) {
-                    clearInterval(timer);
-                }
-            }, stepTime);
+        // Section Navigation
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if(id === 'squad') animateAges();
         }
 
-        window.onload = animateAge;
+        // Logo Upload
+        document.getElementById('logo-upload').addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function() { document.getElementById('club-logo').src = reader.result; }
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        // Gallery Upload
+        document.getElementById('gallery-upload').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const container = document.getElementById('gallery-container');
+            for(let file of files) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const img = document.createElement('img');
+                    img.src = reader.result;
+                    img.className = 'gallery-item';
+                    container.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Age Animation Logic
+        function animateAges() {
+            const ageElements = document.querySelectorAll('.age-animate');
+            ageElements.forEach(el => {
+                const dob = new Date(el.dataset.dob);
+                const age = new Date().getFullYear() - dob.getFullYear();
+                let current = 0;
+                const timer = setInterval(() => {
+                    if (current >= age) {
+                        el.innerText = age;
+                        clearInterval(timer);
+                    } else {
+                        el.innerText = current++;
+                    }
+                }, 50);
+            });
+        }
     </script>
 </body>
 </html>
