@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ROMA SC | Rongena/Manaret Sporting Club</title>
 
@@ -10,10 +11,10 @@
 
         :root{
             --roma-blue:#1a75ff;
-            --roma-light:#f4f8ff;
-            --roma-dark:#222;
-            --roma-grey:#f1f1f1;
-            --white:#ffffff;
+            --roma-light:#f5f8ff;
+            --roma-dark:#222222;
+            --roma-white:#ffffff;
+            --roma-grey:#e9eef5;
         }
 
         *{
@@ -24,7 +25,7 @@
 
         body{
             font-family:'Segoe UI', Arial, sans-serif;
-            background:var(--white);
+            background:var(--roma-white);
             color:var(--roma-dark);
             line-height:1.7;
         }
@@ -32,12 +33,11 @@
         /* HEADER */
 
         header{
+            position:fixed;
+            top:0;
+            width:100%;
             background:white;
             border-bottom:3px solid var(--roma-blue);
-            padding:10px 0;
-            position:fixed;
-            width:100%;
-            top:0;
             z-index:1000;
             box-shadow:0 2px 10px rgba(0,0,0,0.08);
         }
@@ -47,40 +47,62 @@
             margin:auto;
             display:flex;
             align-items:center;
-            justify-content:center;
-            gap:20px;
+            justify-content:space-between;
+            padding:12px 20px;
         }
 
-        .logo{
-            width:65px;
-            height:auto;
+        .header-left{
+            display:flex;
+            align-items:center;
+            gap:15px;
         }
 
-        .club-title{
+        #clubLogo{
+            width:70px;
+            height:70px;
+            object-fit:contain;
+        }
+
+        .club-name{
             font-size:2rem;
-            color:var(--roma-blue);
             font-weight:800;
-            letter-spacing:2px;
+            color:var(--roma-blue);
+        }
+
+        .upload-btn{
+            background:var(--roma-blue);
+            color:white;
+            padding:10px 20px;
+            border-radius:30px;
+            cursor:pointer;
+            font-weight:bold;
+            transition:0.3s;
+            display:inline-block;
+        }
+
+        .upload-btn:hover{
+            transform:scale(1.05);
         }
 
         /* HERO */
 
         .hero{
-            margin-top:90px;
+            margin-top:95px;
 
             background:
-            linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.92)),
+            linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.92)),
             url('https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1200&auto=format&fit=crop');
 
             background-size:cover;
             background-position:center;
 
-            padding:60px 20px;
             text-align:center;
+            padding:70px 20px;
         }
 
-        .hero img{
-            width:220px;
+        #heroLogo{
+            width:230px;
+            max-width:90%;
             margin-bottom:20px;
         }
 
@@ -95,20 +117,20 @@
             font-weight:bold;
         }
 
-        /* ABOUT CLUB SECTION */
+        /* ABOUT */
 
         .about-club{
-            max-width:1100px;
+            max-width:1150px;
             margin:auto;
-            padding:70px 20px 40px;
+            padding:70px 20px;
         }
 
         .about-club h2{
             color:var(--roma-blue);
             font-size:2.2rem;
-            margin-bottom:25px;
             border-left:6px solid var(--roma-blue);
             padding-left:15px;
+            margin-bottom:30px;
         }
 
         .about-club p{
@@ -120,7 +142,6 @@
 
         .main-layout{
             display:flex;
-            min-height:700px;
         }
 
         /* SIDEBAR */
@@ -128,26 +149,24 @@
         .sidebar{
             width:260px;
             background:var(--roma-blue);
-            padding:30px 0;
-            position:sticky;
-            top:90px;
-            height:100vh;
+            min-height:100vh;
+            padding-top:30px;
         }
 
         .sidebar h3{
             color:white;
             text-align:center;
-            margin-bottom:25px;
-            font-size:1.4rem;
+            margin-bottom:30px;
+            font-size:1.5rem;
         }
 
         .sidebar button{
             width:100%;
-            background:none;
             border:none;
+            background:none;
             color:white;
-            padding:18px 25px;
             text-align:left;
+            padding:18px 25px;
             font-size:1rem;
             cursor:pointer;
             transition:0.3s;
@@ -159,12 +178,12 @@
             border-left:4px solid white;
         }
 
-        /* CONTENT AREA */
+        /* CONTENT */
 
         .content{
             flex:1;
-            padding:50px;
             background:var(--roma-light);
+            padding:50px;
         }
 
         .tab-content{
@@ -190,10 +209,10 @@
 
         .tab-content h2{
             color:var(--roma-blue);
-            margin-bottom:25px;
             font-size:2rem;
             border-left:6px solid var(--roma-blue);
             padding-left:15px;
+            margin-bottom:30px;
         }
 
         /* CARDS */
@@ -229,6 +248,10 @@
 
         /* GALLERY */
 
+        .gallery-controls{
+            margin-bottom:30px;
+        }
+
         .gallery{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -237,10 +260,10 @@
 
         .gallery img{
             width:100%;
-            border-radius:12px;
-            height:220px;
+            height:230px;
             object-fit:cover;
-            box-shadow:0 3px 10px rgba(0,0,0,0.12);
+            border-radius:12px;
+            box-shadow:0 3px 12px rgba(0,0,0,0.12);
         }
 
         /* CONTACT */
@@ -252,7 +275,7 @@
 
         .whatsapp-btn{
             display:inline-block;
-            margin-top:15px;
+            margin-top:20px;
             background:#25D366;
             color:white;
             padding:12px 25px;
@@ -267,7 +290,7 @@
             background:var(--roma-blue);
             color:white;
             text-align:center;
-            padding:25px;
+            padding:30px;
         }
 
         /* MOBILE */
@@ -280,9 +303,7 @@
 
             .sidebar{
                 width:100%;
-                height:auto;
-                position:relative;
-                top:0;
+                min-height:auto;
             }
 
             .content{
@@ -293,8 +314,9 @@
                 font-size:2.5rem;
             }
 
-            .hero img{
-                width:150px;
+            .header-container{
+                flex-direction:column;
+                gap:15px;
             }
         }
 
@@ -309,10 +331,31 @@
 
         <div class="header-container">
 
-            <img id="clubLogo" src="" alt="ROMA SC Logo" class="logo">
+            <div class="header-left">
 
-            <div class="club-title">
-                ROMA SC
+                <img id="clubLogo"
+                src="https://via.placeholder.com/200x200.png?text=ROMA+SC"
+                alt="ROMA SC Logo">
+
+                <div class="club-name">
+                    ROMA SC
+                </div>
+
+            </div>
+
+            <!-- LOGO UPLOAD -->
+
+            <div>
+
+                <label for="logoUpload" class="upload-btn">
+                    Upload Club Logo
+                </label>
+
+                <input type="file"
+                id="logoUpload"
+                accept="image/*"
+                hidden>
+
             </div>
 
         </div>
@@ -323,7 +366,9 @@
 
     <section class="hero">
 
-        <input type="file" id="logoUpload" accept="image/*" hidden>
+        <img id="heroLogo"
+        src="https://via.placeholder.com/400x400.png?text=ROMA+SC"
+        alt="ROMA SC Logo">
 
         <h1>ROMA SC</h1>
 
@@ -333,39 +378,31 @@
 
     </section>
 
-    <!-- ABOUT CLUB -->
+    <!-- ABOUT -->
 
     <section class="about-club">
 
         <h2>About the Club</h2>
 
         <p>
-            ROMA SC (Rongena/Manaret Sporting Club) is a modern community football club founded in the year <strong>2026</strong> with a vision of building a strong football culture, empowering local youth talent, and creating a professional sporting identity for the Rongena and Manaret communities.
+            ROMA SC (Rongena/Manaret Sporting Club) is a modern football institution founded in 2026 with a mission of developing football talent, promoting discipline, strengthening community unity, and building a professional sporting culture within the Rongena and Manaret regions.
         </p>
 
         <p>
-            The club was established by passionate football lovers, respected community leaders, and former legends associated with the historic Kisabei FC. Their shared dream was to create a disciplined and competitive football institution capable of competing at the highest levels of Kenyan football while still remaining deeply connected to the grassroots community.
+            The club was formed through the efforts of passionate football lovers, former Kisabei FC legends, local leaders, and dedicated sports stakeholders who shared a vision of creating a competitive football club capable of representing the region proudly at national levels.
         </p>
 
         <p>
-            ROMA SC proudly calls the famous <strong>Kisabei Grounds</strong> its home. The grounds have become a symbol of unity, determination, and sporting passion where players, fans, and the local community gather to support the growth of football in the region.
+            ROMA SC proudly calls Kisabei Grounds its home. The grounds symbolize passion, resilience, teamwork, and community pride. The club aims to create opportunities for young footballers while inspiring the next generation through sportsmanship and professionalism.
         </p>
 
         <p>
-            The club operates under strong values of discipline, teamwork, professionalism, respect, hard work, and sportsmanship. Through football, ROMA SC aims to nurture young talent, create career opportunities for players, and inspire the next generation of athletes within Bomet County and across Kenya.
-        </p>
-
-        <p>
-            Since its formation, the club has continued to attract talented players, loyal supporters, and committed management members who believe in the long-term vision of building one of the most respected football institutions in the country.
-        </p>
-
-        <p>
-            ROMA SC proudly competes in the Kenyan Division 1 structure with ambitions of earning promotion into higher national competitions in the near future. The club’s identity is represented by the powerful Phoenix symbol — a sign of rebirth, resilience, strength, ambition, and rising above challenges.
+            Guided by strong values of unity, discipline, ambition, and hard work, ROMA SC continues to grow as one of the most promising football projects in the region. The club’s identity is represented by the Phoenix — a symbol of strength, rebirth, determination, and rising above challenges.
         </p>
 
     </section>
 
-    <!-- MAIN LAYOUT -->
+    <!-- MAIN SECTION -->
 
     <div class="main-layout">
 
@@ -408,11 +445,11 @@
                 <h2>Our History</h2>
 
                 <p>
-                    ROMA SC traces its roots back to the strong football traditions of the Rongena and Manaret regions. The club was officially founded in 2026 after several former Kisabei FC legends and football stakeholders came together with a common goal of reviving competitive football within the community.
+                    ROMA SC was officially founded in 2026 after former Kisabei FC legends came together with a vision of reviving competitive football in the region.
                 </p>
 
                 <p>
-                    What started as a community football idea quickly transformed into a serious sporting project focused on professionalism, youth development, and long-term football success.
+                    The club was created to build a strong football pathway for talented players while promoting discipline, professionalism, and community unity through sport.
                 </p>
 
             </div>
@@ -468,13 +505,21 @@
 
                 <h2>Club Gallery</h2>
 
-                <div class="gallery">
+                <div class="gallery-controls">
 
-                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop">
+                    <label for="galleryUpload" class="upload-btn">
+                        Upload Gallery Photos
+                    </label>
 
-                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1200&auto=format&fit=crop">
+                    <input type="file"
+                    id="galleryUpload"
+                    accept="image/*"
+                    multiple
+                    hidden>
 
-                    <img src="https://images.unsplash.com/photo-1518604666860-9ed391f76460?q=80&w=1200&auto=format&fit=crop">
+                </div>
+
+                <div class="gallery" id="galleryContainer">
 
                 </div>
 
@@ -484,7 +529,7 @@
 
             <div id="contacts" class="tab-content">
 
-                <h2>Contacts</h2>
+                <h2>Contact Us</h2>
 
                 <div class="contact-box">
 
@@ -513,7 +558,7 @@
     <footer>
 
         <p>
-            &copy; 2026 ROMA SC — Rongena/Manaret Sporting Club
+            © 2026 ROMA SC — Rongena/Manaret Sporting Club
         </p>
 
         <p>
@@ -526,9 +571,11 @@
 
     <script>
 
+        /* SIDEBAR TAB SWITCHING */
+
         function showTab(tabId){
 
-            let tabs = document.querySelectorAll('.tab-content');
+            const tabs = document.querySelectorAll('.tab-content');
 
             tabs.forEach(tab => {
                 tab.classList.remove('active');
@@ -536,6 +583,62 @@
 
             document.getElementById(tabId).classList.add('active');
         }
+
+        /* LOGO UPLOAD FUNCTION */
+
+        const logoUpload = document.getElementById('logoUpload');
+
+        const clubLogo = document.getElementById('clubLogo');
+
+        const heroLogo = document.getElementById('heroLogo');
+
+        logoUpload.addEventListener('change', function(event){
+
+            const file = event.target.files[0];
+
+            if(file){
+
+                const reader = new FileReader();
+
+                reader.onload = function(e){
+
+                    clubLogo.src = e.target.result;
+
+                    heroLogo.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+
+        /* GALLERY UPLOAD FUNCTION */
+
+        const galleryUpload = document.getElementById('galleryUpload');
+
+        const galleryContainer = document.getElementById('galleryContainer');
+
+        galleryUpload.addEventListener('change', function(event){
+
+            const files = event.target.files;
+
+            for(let i = 0; i < files.length; i++){
+
+                const file = files[i];
+
+                const reader = new FileReader();
+
+                reader.onload = function(e){
+
+                    const img = document.createElement('img');
+
+                    img.src = e.target.result;
+
+                    galleryContainer.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
 
     </script>
 
