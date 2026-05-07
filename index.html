@@ -5,123 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROMA SC | Rongena/Manaret Sporting Club</title>
     <style>
-        /* Base Styling */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; color: #333; scroll-behavior: smooth; }
-        header { background: #000; color: #fff; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 4px solid #0056b3; }
-        nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; }
-        nav a:hover { color: #0056b3; }
+        /* Color Palette based on Logo */
+        :root {
+            --roma-blue: #1a75ff; /* Electric Blue from logo */
+            --roma-black: #000000;
+            --roma-gray: #111111;
+        }
+
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.6; color: #eee; background-color: var(--roma-black); scroll-behavior: smooth; }
         
-        .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://unsplash.com'); 
-                height: 350px; background-size: cover; color: white; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 60px; }
+        header { background: var(--roma-black); color: #fff; padding: 0.5rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 3px solid var(--roma-blue); box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .nav-container { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: auto; padding: 0 20px; }
+        .logo-small { height: 50px; }
         
-        section { padding: 4rem 2rem; max-width: 1000px; margin: auto; border-bottom: 1px solid #eee; }
-        h2 { color: #0056b3; text-transform: uppercase; border-left: 5px solid #000; padding-left: 10px; }
+        nav { display: flex; gap: 15px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: var(--roma-blue); }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .card { background: #f4f4f4; padding: 20px; border-radius: 8px; border-top: 4px solid #0056b3; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://unsplash.com'); 
+                height: 500px; background-size: cover; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-top: 60px; border-bottom: 5px solid var(--roma-blue); }
+        .hero img { width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 15px var(--roma-blue)); }
         
-        /* Contact Styles */
-        .contact-list { list-style: none; padding: 0; }
-        .contact-list li { margin-bottom: 15px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-        .whatsapp-btn { background: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        section { padding: 5rem 2rem; max-width: 1000px; margin: auto; }
+        .alternate-bg { background-color: var(--roma-gray); }
         
-        .kit-box { display: flex; align-items: center; gap: 15px; }
-        .color-swatch { width: 50px; height: 50px; border: 1px solid #ddd; }
+        h2 { color: var(--roma-blue); text-transform: uppercase; border-left: 5px solid var(--roma-blue); padding-left: 15px; margin-bottom: 30px; font-size: 2rem; }
         
-        footer { background: #000; color: #fff; text-align: center; padding: 2rem; margin-top: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .card { background: #1a1a1a; padding: 25px; border-radius: 12px; border-bottom: 4px solid var(--roma-blue); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        
+        .kit-box { display: flex; align-items: center; gap: 15px; background: #222; padding: 20px; border-radius: 10px; width: fit-content; }
+        .color-swatch { width: 60px; height: 60px; border-radius: 50%; border: 2px solid #333; }
+        
+        .whatsapp-btn { background: #25D366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; transition: 0.3s; }
+        .whatsapp-btn:hover { background: #128C7E; transform: scale(1.05); }
+
+        footer { background: #000; color: #888; text-align: center; padding: 3rem; border-top: 1px solid #222; }
+        
+        /* Mobile adjustment */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav { gap: 10px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#history">History</a>
-            <a href="#management">Management</a>
-            <a href="#squad">Squad</a>
-            <a href="#contacts">Contact Us</a>
-        </nav>
+        <div class="nav-container">
+            <img src="YOUR_LOGO_URL_HERE" alt="ROMA SC Logo" class="logo-small">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#history">History</a>
+                <a href="#management">Management</a>
+                <a href="#squad">Squad</a>
+                <a href="#contacts">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <div class="hero">
-        <div>
-            <h1>ROMA SC</h1>
-            <p>Rongena/Manaret Sporting Club | Kenyan Division 1</p>
-        </div>
+        <img src="YOUR_LOGO_URL_HERE" alt="ROMA SC Phoenix Logo">
+        <h1>ROMA SC</h1>
+        <p style="font-size: 1.2rem; color: var(--roma-blue);">Rongena/Manaret Sporting Club | Kenyan Division 1</p>
     </div>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About the Club</h2>
-        <p>Formed in the year <strong>2026</strong>, ROMA SC is a community-driven football club dedicated to excellence, talent development, and sportsmanship in the Kenyan Division 1 league.</p>
+        <p>Formed in <strong>2026</strong>, ROMA SC is more than a football team; it is a movement rooted in the community of Kisabei. We are dedicated to competing at the highest level of the <strong>Kenyan Division 1 League</strong> while fostering local talent and sporting excellence.</p>
     </section>
 
-    <!-- History Section -->
-    <section id="history">
-        <h2>History</h2>
-        <p>In 2026, we formed <strong>ROMA SC</strong> (Rongena/Manaret Sporting Club). It is a community club born out of passion and legacy. Legends from the former <strong>Kisabei FC</strong> came together to form the club to compete at a high level in the Kenyan Division 1 league. The club proudly calls the <strong>Kisabei Grounds</strong> its home base.</p>
+    <section id="history" class="alternate-bg">
+        <h2>Our History</h2>
+        <p>ROMA SC was born in 2026 from a shared vision of unity and legacy. Legends from the former <strong>Kisabei FC</strong> joined forces to build a professional platform for the youth of Rongena and Manaret. Our journey began at the historic <strong>Kisabei Grounds</strong>, which remains our fortress and home today.</p>
     </section>
 
-    <!-- Management Section -->
     <section id="management">
-        <h2>Management Team</h2>
+        <h2>Technical Bench & Leadership</h2>
         <div class="grid">
             <div class="card">
-                <h3>Collins Kirui</h3>
-                <p>Chairman</p>
+                <h3 style="color: var(--roma-blue);">Collins Kirui</h3>
+                <p>Club Chairman</p>
             </div>
             <div class="card">
-                <h3>Lawrence Langat</h3>
+                <h3 style="color: var(--roma-blue);">Lawrence Langat</h3>
                 <p>Head Coach</p>
             </div>
             <div class="card">
-                <h3>Hassan Kipkirui</h3>
+                <h3 style="color: var(--roma-blue);">Hassan Kipkirui</h3>
                 <p>Team Manager</p>
             </div>
         </div>
     </section>
 
-    <!-- Kits Section -->
-    <section id="kits">
-        <h2>Club Kits</h2>
+    <section id="kits" class="alternate-bg">
+        <h2>Official Colors</h2>
+        <p>We wear our colors with pride. The Blue represents the sky-high ambitions of our community, and the Black represents our strength and resilience.</p>
         <div class="kit-box">
-            <div class="color-swatch" style="background: #0056b3;"></div> <strong>Blue</strong>
-            <span>&</span>
-            <div class="color-swatch" style="background: #000;"></div> <strong>Black</strong>
+            <div class="color-swatch" style="background: var(--roma-blue);"></div> <strong>Electric Blue</strong>
+            <span style="color: #555;">|</span>
+            <div class="color-swatch" style="background: #000;"></div> <strong>Pitch Black</strong>
         </div>
     </section>
 
-    <!-- Squad Section -->
     <section id="squad">
         <h2>Current Squad</h2>
-        <ul>
-            <li><strong>1. Hassan Kipkirui</strong></li>
-        </ul>
+        <div class="card" style="width: fit-content; min-width: 250px;">
+            <p><strong>1. Hassan Kipkirui</strong> (Manager/Player)</p>
+            <p style="color: #666; font-style: italic;">More signings to be announced...</p>
+        </div>
     </section>
 
-    <!-- Contacts Section -->
-    <section id="contacts">
-        <h2>Contact Us</h2>
+    <section id="contacts" class="alternate-bg">
+        <h2>Connect With Us</h2>
         <div class="grid">
             <div>
-                <ul class="contact-list">
-                    <li><strong>📞 Mobile:</strong> +254 734 556 903</li>
-                    <li><strong>✉️ Email:</strong> <a href="mailto:romasc@romaclub.co.ke">romasc@romaclub.co.ke</a></li>
-                    <li><strong>📘 Facebook:</strong> @romasc</li>
-                    <li><strong>🎵 TikTok:</strong> @romasportingclub</li>
-                </ul>
-                <a href="https://wa.me" class="whatsapp-btn">Chat on WhatsApp</a>
+                <p><strong>📞 Mobile:</strong> +254 734 556 903</p>
+                <p><strong>✉️ Email:</strong> romasc@romaclub.co.ke</p>
+                <p><strong>📘 Facebook:</strong> /romasc</p>
+                <p><strong>🎵 TikTok:</strong> @romasportingclub</p>
+                <a href="https://wa.me" class="whatsapp-btn">Message us on WhatsApp</a>
             </div>
-            <div class="card">
-                <h3>Our Grounds</h3>
-                <p>Kisabei Grounds<br>Kenya</p>
+            <div class="card" style="border-bottom-color: #25D366;">
+                <h3>Sponsorship</h3>
+                <p>As a community-funded club, we welcome support from well-wishers and partners. Contact our Chairman for more details.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ROMA SC - Rongena/Manaret Sporting Club. All Rights Reserved.</p>
+        <p>&copy; 2026 ROMA SC - Based at Kisabei Grounds, Kenya.<br>Rising Like a Phoenix.</p>
     </footer>
 
 </body>
