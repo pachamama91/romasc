@@ -4,375 +4,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>ROMA SC | Rongena/Manaret Sporting Club</title>
 
     <style>
-
-        :root{
-            /* Changed blue to Gold and light blue to Cream/Gold */
-            --roma-primary:#D4AF37; 
-            --roma-light:#FFFBF0;
-            --roma-dark:#222222;
-            --roma-white:#ffffff;
-            --roma-grey:#e9eef5;
+        :root {
+            /* BRAND COLORS: GOLD, BLACK, CREAM */
+            --roma-primary: #D4AF37; 
+            --roma-light: #FAF9F6;
+            --roma-dark: #1A1A1A;
+            --roma-white: #ffffff;
+            --roma-grey: #e9eef5;
         }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            font-family:'Segoe UI', Arial, sans-serif;
-            background:var(--roma-white);
-            color:var(--roma-dark);
-            line-height:1.7;
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--roma-white);
+            color: var(--roma-dark);
+            line-height: 1.7;
         }
 
         /* HEADER */
-
-        header{
-            position:fixed;
-            top:0;
-            width:100%;
-            background:white;
-            border-bottom:3px solid var(--roma-primary);
-            z-index:1000;
-            box-shadow:0 2px 10px rgba(0,0,0,0.08);
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 3px solid var(--roma-primary);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
-        .header-container{
-            max-width:1200px;
-            margin:auto;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:12px 20px;
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
         }
 
-        .header-left{
-            display:flex;
-            align-items:center;
-            gap:15px;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        #clubLogo{
-            width:70px;
-            height:70px;
-            object-fit:contain;
+        #clubLogo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
         }
 
-        .club-name{
-            font-size:2rem;
-            font-weight:800;
-            color:var(--roma-primary);
+        .club-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--roma-primary);
         }
 
-        .upload-btn{
-            background:var(--roma-primary);
-            color:white;
-            padding:10px 20px;
-            border-radius:30px;
-            cursor:pointer;
-            font-weight:bold;
-            transition:0.3s;
-            display:inline-block;
-            border:none;
+        .upload-btn {
+            background: var(--roma-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
         }
 
-        .upload-btn:hover{
-            transform:scale(1.05);
-            background:#b8962e; /* Slightly darker gold on hover */
+        .upload-btn:hover {
+            transform: scale(1.05);
+            background: #b8962e;
         }
 
         /* HERO */
-
-        .hero{
-            margin-top:95px;
-
+        .hero {
+            margin-top: 95px;
             background:
-            linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.92)),
-            url('https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1200&auto=format&fit=crop');
-
-            background-size:cover;
-            background-position:center;
-
-            text-align:center;
-            padding:70px 20px;
+            linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.85)),
+            url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 70px 20px;
         }
 
-        #heroLogo{
-            width:230px;
-            max-width:90%;
-            margin-bottom:20px;
+        #heroLogo {
+            width: 230px;
+            max-width: 90%;
+            margin-bottom: 20px;
         }
 
-        .hero h1{
-            font-size:4rem;
-            color:var(--roma-dark);
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--roma-dark);
         }
 
-        .hero p{
-            font-size:1.3rem;
-            color:var(--roma-primary);
-            font-weight:bold;
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--roma-primary);
+            font-weight: bold;
         }
 
         /* ABOUT */
-
-        .about-club{
-            max-width:1150px;
-            margin:auto;
-            padding:70px 20px;
+        .about-club {
+            max-width: 1150px;
+            margin: auto;
+            padding: 70px 20px;
         }
 
-        .about-club h2{
-            color:var(--roma-primary);
-            font-size:2.2rem;
-            border-left:6px solid var(--roma-primary);
-            padding-left:15px;
-            margin-bottom:30px;
+        .about-club h2 {
+            color: var(--roma-primary);
+            font-size: 2.2rem;
+            border-left: 6px solid var(--roma-primary);
+            padding-left: 15px;
+            margin-bottom: 30px;
         }
 
-        .about-club p{
-            margin-bottom:20px;
-            font-size:1.08rem;
+        .about-club p {
+            margin-bottom: 20px;
+            font-size: 1.08rem;
         }
 
         /* MAIN LAYOUT */
-
-        .main-layout{
-            display:flex;
+        .main-layout {
+            display: flex;
         }
 
         /* SIDEBAR */
-
-        .sidebar{
-            width:260px;
-            background:var(--roma-primary);
-            min-height:100vh;
-            padding-top:30px;
+        .sidebar {
+            width: 260px;
+            background: var(--roma-primary);
+            min-height: 100vh;
+            padding-top: 30px;
         }
 
-        .sidebar h3{
-            color:white;
-            text-align:center;
-            margin-bottom:30px;
-            font-size:1.5rem;
+        .sidebar h3 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
         }
 
-        .sidebar button{
-            width:100%;
-            border:none;
-            background:none;
-            color:white;
-            text-align:left;
-            padding:18px 25px;
-            font-size:1rem;
-            cursor:pointer;
-            transition:0.3s;
-            border-left:4px solid transparent;
+        .sidebar button {
+            width: 100%;
+            border: none;
+            background: none;
+            color: white;
+            text-align: left;
+            padding: 18px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            border-left: 4px solid transparent;
         }
 
-        .sidebar button:hover{
-            background:rgba(255,255,255,0.12);
-            border-left:4px solid white;
+        .sidebar button:hover {
+            background: rgba(255,255,255,0.12);
+            border-left: 4px solid white;
         }
 
         /* CONTENT */
-
-        .content{
-            flex:1;
-            background:var(--roma-light);
-            padding:50px;
+        .content {
+            flex: 1;
+            background: var(--roma-light);
+            padding: 50px;
         }
 
-        .tab-content{
-            display:none;
-            animation:fade 0.4s ease;
+        .tab-content {
+            display: none;
+            animation: fade 0.4s ease;
         }
 
-        .tab-content.active{
-            display:block;
+        .tab-content.active {
+            display: block;
         }
 
-        @keyframes fade{
-            from{
-                opacity:0;
-                transform:translateY(10px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
+        @keyframes fade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .tab-content h2{
-            color:var(--roma-primary);
-            font-size:2rem;
-            border-left:6px solid var(--roma-primary);
-            padding-left:15px;
-            margin-bottom:30px;
+        .tab-content h2 {
+            color: var(--roma-primary);
+            font-size: 2rem;
+            border-left: 6px solid var(--roma-primary);
+            padding-left: 15px;
+            margin-bottom: 30px;
         }
 
         /* CARDS */
-
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
-        .card{
-            background:white;
-            padding:25px;
-            border-radius:12px;
-            box-shadow:0 4px 12px rgba(0,0,0,0.08);
-            border-top:4px solid var(--roma-primary);
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--roma-primary);
         }
 
-        .card h3{
-            color:var(--roma-primary);
-            margin-bottom:10px;
+        .card h3 {
+            color: var(--roma-primary);
+            margin-bottom: 10px;
         }
 
         /* FIXTURES */
-
-        .fixture{
-            background:white;
-            padding:20px;
-            margin-bottom:20px;
-            border-left:5px solid var(--roma-primary);
-            border-radius:10px;
+        .fixture {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--roma-primary);
+            border-radius: 10px;
         }
 
         /* GALLERY */
-
-        .gallery-controls{
-            margin-bottom:30px;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .gallery{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-        }
-
-        .gallery img{
-            width:100%;
-            height:230px;
-            object-fit:cover;
-            border-radius:12px;
-            box-shadow:0 3px 12px rgba(0,0,0,0.12);
-        }
-
-        /* CONTACT */
-
-        .contact-box p{
-            margin-bottom:15px;
-            font-size:1.05rem;
-        }
-
-        .whatsapp-btn{
-            display:inline-block;
-            margin-top:20px;
-            background:#25D366;
-            color:white;
-            padding:12px 25px;
-            text-decoration:none;
-            border-radius:30px;
-            font-weight:bold;
+        .gallery img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
         }
 
         /* SQUAD TABLE */
-
-        .squad-table{
-            width:100%;
-            border-collapse:collapse;
-            background:white;
-            border-radius:10px;
-            overflow:hidden;
-            box-shadow:0 3px 10px rgba(0,0,0,0.08);
+        .squad-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
         }
 
-        .squad-table th{
-            background:var(--roma-primary);
-            color:white;
-            padding:15px;
-            text-align:left;
+        .squad-table th {
+            background: var(--roma-primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
         }
 
-        .squad-table td{
-            padding:12px;
-            border-bottom:1px solid #ddd;
+        .squad-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
         }
 
-        .squad-table input{
-            width:100%;
-            padding:8px;
-            border:1px solid #ccc;
-            border-radius:6px;
-        }
-
-        .player-photo{
-            width:70px;
-            height:70px;
-            object-fit:cover;
-            border-radius:8px;
-            border:2px solid var(--roma-primary);
-            margin-top:10px;
-        }
-
-        .save-btn{
-            background:green;
-            color:white;
-            border:none;
-            padding:8px 15px;
-            border-radius:6px;
-            cursor:pointer;
-            margin-right:5px;
-        }
-
-        .delete-btn{
-            background:red;
-            color:white;
-            border:none;
-            padding:8px 15px;
-            border-radius:6px;
-            cursor:pointer;
+        .player-photo {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--roma-primary);
         }
 
         /* FOOTER */
-
-        footer{
-            background:var(--roma-primary);
-            color:white;
-            text-align:center;
-            padding:30px;
+        footer {
+            background: var(--roma-primary);
+            color: white;
+            text-align: center;
+            padding: 30px;
         }
 
         /* MOBILE */
-
         @media(max-width:900px){
-
-            .main-layout{
-                flex-direction:column;
-            }
-
-            .sidebar{
-                width:100%;
-                min-height:auto;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .sidebar button {
-                width: auto;
-            }
+            .main-layout { flex-direction: column; }
+            .sidebar { width: 100%; min-height: auto; padding-bottom: 20px; }
+            .content { padding: 20px; }
         }
     </style>
 </head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <img id="clubLogo" src="placeholder-logo.png" alt="Logo">
+                <span class="club-name">ROMA SC</span>
+            </div>
+            <button class="upload-btn">Member Login</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img id="heroLogo" src="placeholder-logo.png" alt="ROMA SC PHOENIX">
+        <h1>ROMA SC</h1>
+        <p>Est. 2026 | Rising From The Flames</p>
+    </section>
+
+    <div class="main-layout">
+        <aside class="sidebar">
+            <h3>CLUB MENU</h3>
+            <button onclick="showTab('home')">Home</button>
+            <button onclick="showTab('squad')">First Team</button>
+            <button onclick="showTab('fixtures')">Fixtures</button>
+            <button onclick="showTab('gallery')">Gallery</button>
+        </aside>
+
+        <main class="content">
+            <!-- HOME TAB -->
+            <div id="home" class="tab-content active">
+                <h2>Welcome to ROMA SC</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Our History</h3>
+                        <p>Founded in 2026, ROMA SC represents the spirit of the Phoenix.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Stadium</h3>
+                        <p>Join us at the Roma Arena for our upcoming home fixtures.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SQUAD TAB (Example) -->
+            <div id="squad" class="tab-content">
+                <h2>First Team Squad</h2>
+                <table class="squad-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="player-photo"></div></td>
+                            <td>Example Player</td>
+                            <td>Forward</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ROMA SC - All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
